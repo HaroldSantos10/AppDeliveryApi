@@ -31,4 +31,3 @@ Route::resource('categories', categoryController::class)->middleware('auth');
 Route::resource('restaurants', restaurantController::class)->middleware('auth');
 Route::resource('dishes', dishController::class)->middleware('auth');
 Route::resource('featureds', featuredController::class)->middleware('auth');
-Route::resource('featured-dishes', featuredDishController::class)->middleware('auth');

@@ -37,8 +37,8 @@
                             {{ $dish->image }}
                         </div>
                         <div class="form-group">
-                            <strong>Restaurant Id:</strong>
-                            {{ $dish->restaurant_id }}
+                            <strong>Restaurant: </strong>
+                            {{ $dish->restaurant->name }}
                         </div>
 
                     </div>

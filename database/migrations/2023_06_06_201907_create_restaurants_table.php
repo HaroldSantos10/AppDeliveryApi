@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('image');
-            $table->string('description', 100);
-            $table->decimal('lng', 10,7);
-            $table->decimal('lat', 10,7);
-            $table->string('address', 100);
+            $table->string('description', );
+            $table->decimal('lng', 11,8);
+            $table->decimal('lat', 11,8);
+            $table->string('address', );
             $table->integer('stars');
             $table->string('reviews');
             $table->foreignId('category_id')->constrained('categories')

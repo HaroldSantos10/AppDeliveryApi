@@ -4,6 +4,10 @@
     {{ __('Update') }} Dish
 @endsection
 
+@php
+    $nombreVista = "Edit Dish"
+@endphp
+
 @section('content')
     <section class="content container-fluid">
         <div class="">

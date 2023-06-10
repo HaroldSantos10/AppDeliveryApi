@@ -44,7 +44,7 @@
 										<th>Address</th>
 										<th>Stars</th>
 										<th>Reviews</th>
-										<th>Category Id</th>
+										<th>Category</th>
 
                                         <th></th>
                                     </tr>
@@ -62,7 +62,7 @@
 											<td>{{ $restaurant->address }}</td>
 											<td>{{ $restaurant->stars }}</td>
 											<td>{{ $restaurant->reviews }}</td>
-											<td>{{ $restaurant->category_id }}</td>
+											<td>{{ $restaurant->category->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('restaurants.destroy',$restaurant->id) }}" method="POST">

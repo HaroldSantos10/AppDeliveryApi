@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Featured;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
+use App\Models\Restaurant;
+
 /**
  * Class FeaturedController
  * @package App\Http\Controllers
@@ -19,8 +23,9 @@ class FeaturedController extends Controller
     public function index()
     {
         $featureds = Featured::paginate();
+        $restaurants = Restaurant::all();
 
-        return view('featured.index', compact('featureds'))
+        return view('featured.index', compact('featureds', 'restaurants'))
             ->with('i', (request()->input('page', 1) - 1) * $featureds->perPage());
     }
 
@@ -32,7 +37,8 @@ class FeaturedController extends Controller
     public function create()
     {
         $featured = new Featured();
-        return view('featured.create', compact('featured'));
+        $restaurants = Restaurant::all();
+        return view('featured.create', compact('featured', 'restaurants'));
     }
 
     /**
@@ -60,8 +66,9 @@ class FeaturedController extends Controller
     public function show($id)
     {
         $featured = Featured::find($id);
+        $restaurants = Restaurant::all();
 
-        return view('featured.show', compact('featured'));
+        return view('featured.show', compact('featured', 'restaurants'));
     }
 
     /**
@@ -73,8 +80,9 @@ class FeaturedController extends Controller
     public function edit($id)
     {
         $featured = Featured::find($id);
+        $restaurants = Restaurant::all();
 
-        return view('featured.edit', compact('featured'));
+        return view('featured.edit', compact('featured', 'restaurants'));
     }
 
     /**
@@ -89,6 +97,7 @@ class FeaturedController extends Controller
         request()->validate(Featured::$rules);
 
         $featured->update($request->all());
+
 
         return redirect()->route('featureds.index')
             ->with('success', 'Featured updated successfully');

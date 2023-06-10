@@ -18,7 +18,7 @@ class Category extends Model
 
     static $rules =[
         'name' => 'required|string|min:3',
-        'image' => 'required|string',  
+        'image' => 'required|image',  
     ];
 
     //indicates that have more than one restaurant

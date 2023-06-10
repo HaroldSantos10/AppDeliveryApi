@@ -4,6 +4,11 @@
     {{ __('Create') }} Category
 @endsection
 
+@php
+ $nombreVista = 'Create Category'
+@endphp
+
+
 @section('content')
     <section class="content container-fluid">
         <div class="row">

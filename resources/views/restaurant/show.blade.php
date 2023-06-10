@@ -53,8 +53,8 @@
                             {{ $restaurant->reviews }}
                         </div>
                         <div class="form-group">
-                            <strong>Category Id:</strong>
-                            {{ $restaurant->category_id }}
+                            <strong>Category:</strong>
+                            {{ $restaurant->category->name }}
                         </div>
 
                     </div>

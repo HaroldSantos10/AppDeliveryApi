@@ -32,7 +32,6 @@ Route::resource('v1/restaurants', RestaurantController::class);
 Route::resource('v1/dishes', DishController::class);
 Route::resource('v1/featureds', FeaturedController::class);
 
-Route::resource('v1/featured_dishes', FeaturedDishController::class);
 
 
 

@@ -57,7 +57,7 @@
                              <a href="{{URL::to('categories')}}" class="nav-link">Categories</a>
                              <a href="{{URL::to('restaurants')}}" class="nav-link">Restaurants</a>     
                              <a href="{{URL::to('dishes')}}" class="nav-link">Dishes</a>
-                             <a href="{{URL::to('featureds')}}" class="nav-link">Featureds</a>                            
+                             <a href="{{URL::to('featureds')}}" class="nav-link">Featureds</a>                         
                              
                              <li class="nav-item dropdown">
                                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

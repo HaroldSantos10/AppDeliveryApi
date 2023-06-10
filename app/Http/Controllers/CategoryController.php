@@ -44,10 +44,21 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Category::$rules);
+        $request->validate(Category::$rules);
 
-        $category = Category::create($request->all());
-
+        // Guardar la imagen en la carpeta de almacenamiento
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('categories', 'category_images');
+        } else {
+            $imagePath = null;
+        }
+    
+        // Crear la categoría y guardar la ruta de la imagen en la base de datos
+        $category = Category::create([
+            'name' => $request->input('name'),
+            'image' => $imagePath,
+        ]);
+    
         return redirect()->route('categories.index')
             ->with('success', 'Category created successfully.');
     }
@@ -87,10 +98,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        request()->validate(Category::$rules);
+        $request->validate(Category::$rules);
 
-        $category->update($request->all());
 
+        if ($request->hasFile('image')) {
+            // Eliminar la imagen anterior si existe
+            if ($category->image) {
+                Storage::disk('category_images')->delete($category->image);
+            }
+            // Guardar la nueva imagen
+            $imagePath = $request->file('image')->store('categories', 'category_images');
+            $category->image = $imagePath;
+        }
+    
+        // Actualizar los demás campos de la categoría
+        $category->name = $request->input('name');
+        $category->save();
+    
         return redirect()->route('categories.index')
             ->with('success', 'Category updated successfully');
     }
@@ -102,8 +126,15 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id)->delete();
+        $category = Category::find($id);
 
+ 
+        if ($category->image) {
+            Storage::disk('category_images')->delete($category->image);
+        }
+    
+        $category->delete();
+    
         return redirect()->route('categories.index')
             ->with('success', 'Category deleted successfully');
     }

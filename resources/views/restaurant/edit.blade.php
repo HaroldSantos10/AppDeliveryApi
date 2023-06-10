@@ -4,6 +4,10 @@
     {{ __('Update') }} Restaurant
 @endsection
 
+@php
+ $nombreVista = 'Edit Restaurant'
+@endphp
+
 @section('content')
     <section class="content container-fluid">
         <div class="">

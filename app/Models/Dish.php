@@ -20,8 +20,8 @@ class Dish extends Model
     static $rules = [
         'name' => 'required|string|min:3',
         'description' => 'required|string|min:10',
-        'price' => 'required|numeric|min:0',
-        'image' => 'required|string|',
+        'price' => 'required|regex:/^\d+(\.\d{1,2})?$/|min:0',
+        'image' => 'required|image|',
         'restaurant_id' => 'required',
 
     ];

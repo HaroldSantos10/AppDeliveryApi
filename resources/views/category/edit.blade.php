@@ -4,6 +4,10 @@
     {{ __('Update') }} Category
 @endsection
 
+@php
+ $nombreVista = 'Edit Category'
+@endphp
+
 @section('content')
     <section class="content container-fluid">
         <div class="">

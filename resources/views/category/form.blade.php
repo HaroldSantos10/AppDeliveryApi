@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     {{ Form::open(['route' => 'categories.store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'class' => 'form-container']) }}
-    <h5 class="text-center">Create Category</h5>
+    <h5 class="text-center">{{$nombreVista}}</h5>
 
     <div class="form-group">
         {{ Form::label('name', 'Name') }}

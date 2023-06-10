@@ -1,5 +1,8 @@
 <div class="box box-info padding-1">
     <div class="box-body">
+        {{ Form::open(['route' => 'dishes.store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'class' => 'form-container']) }}
+        <h5 class="text-center">{{$nombreVista}}</h5>
+
         
         <div class="form-group">
             {{ Form::label('name') }}
@@ -13,21 +16,25 @@
         </div>
         <div class="form-group">
             {{ Form::label('price') }}
-            {{ Form::text('price', $dish->price, ['class' => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''), 'placeholder' => 'Price']) }}
+            {{ Form::input('number', 'price', $dish->price, ['class' => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''), 'placeholder' => 'Price', 'step' => 'any']) }}
             {!! $errors->first('price', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
+        </div>        
+        <div class="form-group"> 
             {{ Form::label('image') }}
-            {{ Form::text('image', $dish->image, ['class' => 'form-control' . ($errors->has('image') ? ' is-invalid' : ''), 'placeholder' => 'Image']) }}
+            {{ Form::file('image', ['class' => 'form-control' . ($errors->has('image') ? ' is-invalid' : ''),'accept'=>'image/*', 'placeholder' => 'Image']) }}
             {!! $errors->first('image', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('restaurant_id') }}
-            {{ Form::text('restaurant_id', $dish->restaurant_id, ['class' => 'form-control' . ($errors->has('restaurant_id') ? ' is-invalid' : ''), 'placeholder' => 'Restaurant Id']) }}
+            {{ Form::label('restaurant') }}
+           
+            {{ Form::select('restaurant_id', ['' => 'Selecciona un restaurante'] + $restaurants->pluck('name', 'id')->toArray(), $dish->restaurant_id, ['class' => 'form-select' . ($errors->has('restaurant_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('restaurant_id', '<div class="invalid-feedback">:message</div>') !!}
+    
         </div>
 
     </div>
+    <br>
+    
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
     </div>

@@ -12,11 +12,13 @@
             {!! $errors->first('description', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('restaurant_id') }}
-            {{ Form::text('restaurant_id', $featured->restaurant_id, ['class' => 'form-control' . ($errors->has('restaurant_id') ? ' is-invalid' : ''), 'placeholder' => 'Restaurant Id']) }}
+            {{ Form::label('restaurant') }}
+           
+            {{ Form::select('restaurant_id', ['' => 'Selecciona un restaurante'] + $restaurants->pluck('name', 'id')->toArray(), $featured->restaurant_id, ['class' => 'form-select' . ($errors->has('restaurant_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('restaurant_id', '<div class="invalid-feedback">:message</div>') !!}
+    
         </div>
-
+        <br>
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>

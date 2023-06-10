@@ -4,6 +4,10 @@
     {{ __('Create') }} Restaurant
 @endsection
 
+@php
+ $nombreVista = 'Create Restaurant'
+@endphp
+
 @section('content')
     <section class="content container-fluid">
         <div class="row">

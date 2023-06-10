@@ -25,12 +25,12 @@ class Restaurant extends Model
 
     static $rules = [
         'name' => 'required|string|min:3',
-        'image' => 'required|string',
+        'image' => 'required|image',
         'description' => 'required|string|min:10',
-        'lng' => 'required|numeric|',
-        'lat' => 'required|numeric|',
+        'lng' => ['required', 'regex:/^[-]?(([0-9]|[1-8][0-9])(\.[0-9]{1,15})?|90(\.0{1,15})?)$/'],
+        'lat' => ['required', 'regex:/^[-]?(([0-9]|[1-8][0-9])(\.[0-9]{1,15})?|90(\.0{1,15})?)$/'],        
         'address' => 'required|string|',
-        'stars' => 'required|integer|',
+        'stars' => 'required|integer|min:0|max:5',
         'reviews' => 'required|string|',
         'category_id' => 'required|integer|',
 

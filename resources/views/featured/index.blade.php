@@ -38,7 +38,7 @@
                                         
 										<th>Title</th>
 										<th>Description</th>
-										<th>Restaurant Id</th>
+										<th>Restaurant</th>
 
                                         <th></th>
                                     </tr>
@@ -50,7 +50,7 @@
                                             
 											<td>{{ $featured->title }}</td>
 											<td>{{ $featured->description }}</td>
-											<td>{{ $featured->restaurant_id }}</td>
+											<td>{{ $featured->restaurant->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('featureds.destroy',$featured->id) }}" method="POST">

@@ -4,6 +4,10 @@
     {{ __('Create') }} Dish
 @endsection
 
+@php
+    $nombreVista = "Create Dish"
+@endphp
+
 @section('content')
     <section class="content container-fluid">
         <div class="row">

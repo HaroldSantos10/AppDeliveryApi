@@ -40,7 +40,7 @@
 										<th>Description</th>
 										<th>Price</th>
 										<th>Image</th>
-										<th>Restaurant Id</th>
+										<th>Restaurant</th>
 
                                         <th></th>
                                     </tr>
@@ -54,7 +54,7 @@
 											<td>{{ $dish->description }}</td>
 											<td>{{ $dish->price }}</td>
 											<td>{{ $dish->image }}</td>
-											<td>{{ $dish->restaurant_id }}</td>
+											<td>{{ $dish->restaurant->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('dishes.destroy',$dish->id) }}" method="POST">

@@ -29,8 +29,8 @@
                             {{ $featured->description }}
                         </div>
                         <div class="form-group">
-                            <strong>Restaurant Id:</strong>
-                            {{ $featured->restaurant_id }}
+                            <strong>Restaurant:</strong>
+                            {{ $featured->restaurant->name}}
                         </div>
 
                     </div>
